@@ -1,8 +1,9 @@
-# Mood Lamp --- Bluetooth & Potentiometer-Controlled RGB Lighting
+# Mood Lamp - Bluetooth & Potentiometer-Controlled RGB Lighting
 
 A compact RGB mood lamp built around an **Arduino Nano**, featuring two
-control modes---manual potentiometer control and wireless Bluetooth
-control---plus an optional pseudo-random flickering effect.
+control modes
+1) manual potentiometer control and wireless Bluetooth control
+2) plus an optional pseudo-random flickering effect.
 
 ## Overview
 
@@ -115,11 +116,7 @@ output.
 The lamp can be controlled from a smartphone using the **Serial
 Bluetooth Terminal** app and the HC-05 module.
 
-Send the three channel values in this format:
-
-``` text
-R,G,B
-```
+Send the three channel values in this format: R,G,B
 
 Each value should be in the range **0--255**. Configure the terminal app
 to append **CR+LF (carriage return and line feed)** to each transmission
@@ -127,11 +124,7 @@ so the Arduino firmware can parse the values correctly. The firmware
 uses serial communication through the `SoftwareSerial` library at **9600
 baud**.
 
-Example RGB command:
-
-``` text
-255,0,0
-```
+Example RGB command: 255,0,0
 
 This requests maximum red and zero green and blue at the digital control
 level. Actual output intensity is limited by the LED driver and the
@@ -167,8 +160,8 @@ reproduction.
 
 ## Mechanical Assembly
 
-The main electronics---including the Arduino Nano, HC-05 module,
-ULQ2003A driver IC, and resistors---are assembled on a main zero-PCB.
+The main electronics including the Arduino Nano, HC-05 module,
+ULQ2003A driver IC, and resistors are assembled on a main zero-PCB.
 JST connectors make external components easier to connect and
 disconnect. The RGB LED is mounted on a separate zero-PCB with the
 aluminium heat sink secured behind it.
@@ -183,14 +176,14 @@ on the enclosure.
 The firmware was developed for the Arduino Nano using the Arduino
 development environment. It uses:
 
--   `SoftwareSerial` for HC-05 serial communication
--   `analogRead()` to read potentiometer inputs
--   `analogWrite()` for PWM-based RGB control
+-   SoftwareSerial for HC-05 serial communication
+-   analogRead() to read potentiometer inputs
+-   analogWrite() for PWM-based RGB control
 -   An eight-sample rolling average for manual input smoothing
 -   A PWM dead zone to suppress very low values
 -   A 64-bit LFSR for the pseudo-random flickering effect
 
-The complete firmware can be added to this repository as an `.ino` file.
+The complete firmware can be added to this repository as an .ino file.
 
 ## Demonstration
 
