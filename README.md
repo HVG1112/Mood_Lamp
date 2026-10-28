@@ -1,4 +1,4 @@
-# Mood Lamp - Bluetooth & Potentiometer-Controlled RGB Lighting
+# Mood Lamp - Bluetooth & Potentiometer - Controlled RGB Lighting
 
 A compact RGB mood lamp built around an **Arduino Nano**, featuring two
 control modes
